@@ -1,5 +1,6 @@
 package com.example.school.api;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -10,12 +11,17 @@ import org.springframework.web.client.RestTemplate;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+
 @Component
 public class OpenApiManager {
-    private final String BASE_URL = "https://api.odcloud.kr/api/15086945/v1/uddi:ad8e61a7-bf05-43fd-9091-c2ed8a32e8e1";
-    private final String page = "?page=1";
-    private final String perPage = "?perPage=10";
-    private final String serviceKey = "&serviceKey=data-portal-test-key";
+    @Value("${API_URL}")
+    private String BASE_URL;
+
+    private String page = "?page=1";
+    private String perPage = "?perPage=10";
+
+    @Value("${API_KEY}")
+    private String serviceKey;
 
 
     private String makeUrl() throws UnsupportedEncodingException {
