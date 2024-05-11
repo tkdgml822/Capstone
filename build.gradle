@@ -20,6 +20,8 @@ dependencies {
 	implementation 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// json 파싱
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.16.1'
 }
 
 tasks.named('test') {
