@@ -39,3 +39,6 @@ out/
 ## DB 정보 ##
 application-gcp.properties
 
+## API 정보 ##
+application-API-KEY.properties
+
