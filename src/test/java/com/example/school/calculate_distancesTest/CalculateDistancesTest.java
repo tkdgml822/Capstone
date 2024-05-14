@@ -1,6 +1,5 @@
 package com.example.school.calculate_distancesTest;
 
-import com.example.school.calculate_distances.CalculateDistances;
 import org.junit.jupiter.api.Test;
 
 import static com.example.school.calculate_distances.CalculateDistances.distanceInKilometerByHaversine;
