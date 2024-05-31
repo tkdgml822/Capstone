@@ -26,8 +26,6 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-
-
 	// json 파싱
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 
@@ -41,4 +39,8 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+bootJar {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
