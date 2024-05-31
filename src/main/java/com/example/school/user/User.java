@@ -3,6 +3,7 @@ package com.example.school.user;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Setter
@@ -22,4 +23,8 @@ public class User {
     private String address;
 
     private boolean cleaner;
+
+    // 기본 0
+    @ColumnDefault("0")
+    private Long rankPoint;
 }
