@@ -1,6 +1,7 @@
 package com.example.school.user;
 
 
+import com.example.school.rank.RankDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +31,10 @@ public class UserController {
     @PostMapping("/login")
     public boolean login(@RequestBody User user) {
         return userService.login(user);
+    }
+
+    @GetMapping("rank/all")
+    public List<RankDTO> userRankTopFive() {
+        return userService.getTopFiveUserRanking();
     }
 }
