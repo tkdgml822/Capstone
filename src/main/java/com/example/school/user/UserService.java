@@ -3,6 +3,8 @@ package com.example.school.user;
 import com.example.school.rank.RankDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -54,12 +56,13 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    // 내 랭킹 가져오기
     public int getUserRank(String username) {
-        log.info("userid={}", username);
+        log.info("userID={}", username);
         User userId = userRepository.findByUserID(username);
 
         List<User> users = userRepository.findAll();
-        // 여기서 정렬 순서를 반대로 합니다.
+        //정렬
         List<User> sortedUsers = users.stream()
                 .sorted(Comparator.comparingLong(User::getRankPoint).reversed())
                 .toList();
@@ -69,6 +72,22 @@ public class UserService {
         return resultRank + 1;
     }
 
+    public String addRankPoint(String username) {
+        log.info("usrID={}", username);
+        User user = userRepository.findByUserID(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("해당 유저를 찾을 수 없습니다.");
+        }
+        Long rankPoint = user.getRankPoint();
+        user.setRankPoint(rankPoint + 10);
+
+        userRepository.save(user);
+
+        return "OK";
+    }
+
+    // 정렬된 List에서 range을 써서 하나씩 증가 하다가 유저를 찾으면 range() 결과 값 반환
     private static int getResultRank(List<User> sortedUsers, User userId) {
         return IntStream.range(0, sortedUsers.size())
                 .filter(i -> sortedUsers.get(i).getUserID().equals(userId.getUserID()))
@@ -81,4 +100,15 @@ public class UserService {
         Optional<User> user = Optional.ofNullable(userRepository.findByUserID(userId));
         return user.isEmpty();
     }
+
+    // 아이디 중복 확인 (추후 Service로 뺴기)
+    public ResponseEntity<String> userIdCheck(User user) {
+        if (!checkUserExistence(user.getUserID())) {
+            return ResponseEntity
+                    .status(HttpStatus.CONFLICT)
+                    .body("아이디가 이미 사용 중입니다.");
+        }
+        return null;
+    }
+
 }

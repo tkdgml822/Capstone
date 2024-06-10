@@ -15,7 +15,6 @@ public class CheckUserExistenceTest {
     @Autowired
     UserService userService;
 
-
     @Test
     void checkUser() {
         boolean test1 = userService.checkUserExistence("test1");

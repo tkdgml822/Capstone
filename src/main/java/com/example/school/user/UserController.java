@@ -4,7 +4,6 @@ package com.example.school.user;
 import com.example.school.rank.RankDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,29 +21,23 @@ public class UserController {
         this.userService = userService;
     }
 
+    // 유저 전체 가져오기
     @GetMapping("/get-all")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
+    // 유저 저장
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody User user) { // @RequestBody로 data 받아옴
-        ResponseEntity<String> CONFLICT = userIdCheck(user);
-        if (CONFLICT != null) return CONFLICT;
-        User savedUser = userService.save(user);
+        ResponseEntity<String> CONFLICT = userService.userIdCheck(user); // 중복 확인
+        if (CONFLICT != null) return CONFLICT; // Null 경우 return
+        User savedUser = userService.save(user); // 저장
 
         return ResponseEntity.ok(savedUser);
     }
 
-    private ResponseEntity<String> userIdCheck(User user) {
-        if (!userService.checkUserExistence(user.getUserID())) {
-            return ResponseEntity
-                    .status(HttpStatus.CONFLICT)
-                    .body("아이디가 이미 사용 중입니다.");
-        }
-        return null;
-    }
-
+    // 로그인
     @PostMapping("/login")
     public boolean login(@RequestBody User user) {
         return userService.login(user);
@@ -56,9 +49,15 @@ public class UserController {
         return userService.getUserRankingTopFive();
     }
 
+    // 내 랭킹
     @GetMapping("/rank/user")
     public Integer usesRank(@RequestParam("userID") String userID) {
         return userService.getUserRank(userID);
     }
-    
+
+    @PostMapping("/rank/add-point")
+    public String userRankUp(@RequestParam("userID") String userID) {
+        log.info("userID={}", userID);
+        return userService.addRankPoint(userID);
+    }
 }
