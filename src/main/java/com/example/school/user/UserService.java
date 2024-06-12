@@ -72,8 +72,25 @@ public class UserService {
         return resultRank + 1;
     }
 
+    // 점수 10점 빼기
+    public String subRankPoint(String username) {
+        log.info("UserService.subRankPoint, userID={}", username);
+        User user = userRepository.findByUserID(username);
+
+        if (user == null) {
+            throw new IllegalArgumentException("해당 유저를 찾을 수 없습니다.");
+        }
+        Long rankPoint = user.getRankPoint();
+        user.setRankPoint(rankPoint - 10);
+
+        userRepository.save(user);
+
+        return "point sub OK";
+    }
+
+    // 점수 10점 더하기
     public String addRankPoint(String username) {
-        log.info("usrID={}", username);
+        log.info("UserService.addRankPoint, userID={}", username);
         User user = userRepository.findByUserID(username);
 
         if (user == null) {
@@ -84,7 +101,7 @@ public class UserService {
 
         userRepository.save(user);
 
-        return "OK";
+        return "point add OK";
     }
 
     // 정렬된 List에서 range을 써서 하나씩 증가 하다가 유저를 찾으면 range() 결과 값 반환
