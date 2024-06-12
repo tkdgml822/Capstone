@@ -55,9 +55,17 @@ public class UserController {
         return userService.getUserRank(userID);
     }
 
+    // 점수 더하기
     @PostMapping("/rank/add-point")
     public String userRankUp(@RequestParam("userID") String userID) {
-        log.info("userID={}", userID);
+        log.info("UserController.userRankUp: userID={}", userID);
         return userService.addRankPoint(userID);
+    }
+
+    // 점수 빼기
+    @PostMapping("/rank/sub-point")
+    public String userRankDown(@RequestParam("userID") String userID) {
+        log.info("UserController.userRankDown: userID={}", userID);
+        return userService.subRankPoint(userID);
     }
 }
