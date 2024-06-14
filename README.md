@@ -26,5 +26,5 @@
 ![슬라이드26](ReadMeImage/슬라이드26.png)
 ![슬라이드27](ReadMeImage/슬라이드27.png)
 
-[로그인 영상](videos/myBinVideos.mp4)
-[쓰레기통 작동 영상](videos/myBinVideos2.mp4)
+[로그인 영상](gif/GIFMaker_me.gif) </br>
+[쓰레기통 작동 영상](gif/GIFMaker_me2.gif) </br>
