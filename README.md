@@ -26,5 +26,5 @@
 ![슬라이드26](ReadMeImage/슬라이드26.png)
 ![슬라이드27](ReadMeImage/슬라이드27.png)
 
-<img src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me.gif"> </br>
-<img src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me2.gif">
+<img width="100" height="300" src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me.gif"> </br>
+<img width="300" height="300" src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me2.gif">
