@@ -19,7 +19,7 @@
 ![슬라이드19](ReadMeImage/슬라이드19.png)
 ![슬라이드20](ReadMeImage/슬라이드20.png)
 ![슬라이드21](ReadMeImage/슬라이드21.png)
-![슬라이드22](ReadMeImage/슬라이드22.png)
+[영상](https://github.com/tkdgml822/Capstone)
 ![슬라이드23](ReadMeImage/슬라이드23.png)
 ![슬라이드24](ReadMeImage/슬라이드24.png)
 ![슬라이드25](ReadMeImage/슬라이드25.png)
