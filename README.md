@@ -1,3 +1,7 @@
+# 영상
+<img width="200" height="300" src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me.gif"> </br>
+<img width="300" height="300" src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me2.gif">
+
 ![슬라이드1](ReadMeImage/슬라이드1.png)
 ![슬라이드2](ReadMeImage/슬라이드2.png)
 ![슬라이드3](ReadMeImage/슬라이드3.png)
@@ -26,7 +30,3 @@
 ![슬라이드25](ReadMeImage/슬라이드25.png)
 ![슬라이드26](ReadMeImage/슬라이드26.png)
 ![슬라이드27](ReadMeImage/슬라이드27.png)
-
-# 영상
-<img width="200" height="300" src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me.gif"> </br>
-<img width="300" height="300" src="https://github.com/tkdgml822/Capstone/blob/main/gif/GIFMaker_me2.gif">
